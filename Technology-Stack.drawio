@@ -1,1 +1,70 @@
-<mxfile host="app.diagrams.net" modified="2021-10-24T19:17:52.341Z" agent="5.0 (X11)" version="15.5.9" etag="cqUrKYwFELp9af9kmlo6" type="github"><diagram id="qIqfUOV368z_VfE0VTQ0">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-10-24T19:29:27.150Z" agent="5.0 (X11)" etag="dxAUHpTB9CdAaEeZRdWu" version="15.5.9" type="github">
+  <diagram id="qIqfUOV368z_VfE0VTQ0" name="Page-1">
+    <mxGraphModel dx="1662" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.019;entryY=0.592;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="En2HKmIRu1cNx1hyTsF4-2" target="En2HKmIRu1cNx1hyTsF4-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="270" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="510" y="245" />
+              <mxPoint x="510" y="551" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-5" value="MQTT" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="En2HKmIRu1cNx1hyTsF4-4">
+          <mxGeometry x="-0.2" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="En2HKmIRu1cNx1hyTsF4-2" target="En2HKmIRu1cNx1hyTsF4-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="580" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-14" value="MQTT/HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="En2HKmIRu1cNx1hyTsF4-13">
+          <mxGeometry x="0.2879" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://robot-on.ru/images/articles/8093.jpg;" vertex="1" parent="1">
+          <mxGeometry x="190" y="165" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-6" value="ESP32&#xa;Raspberry Pi&#xa;&#xa;" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://kvshome.ru/wp-content/uploads/2021/02/img_601fb06fba029.png;" vertex="1" parent="1">
+          <mxGeometry x="637.03" y="480" width="205.94" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="En2HKmIRu1cNx1hyTsF4-7" target="En2HKmIRu1cNx1hyTsF4-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-9" value="OTA Update" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="En2HKmIRu1cNx1hyTsF4-8">
+          <mxGeometry x="-0.1569" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-7" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://i.pinimg.com/736x/8d/9b/97/8d9b977c8e59b5b997dd1550ae622208.jpg;" vertex="1" parent="1">
+          <mxGeometry x="659.91" y="140" width="160.19" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-10" value="Wires" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.486;exitY=-0.05;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="En2HKmIRu1cNx1hyTsF4-11" target="En2HKmIRu1cNx1hyTsF4-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="690" as="sourcePoint" />
+            <mxPoint x="680" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-11" value="Sensors and Devices" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="490" y="730" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="En2HKmIRu1cNx1hyTsF4-12" target="En2HKmIRu1cNx1hyTsF4-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-12" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://download.logo.wine/logo/InfluxDB/InfluxDB-Logo.wine.png;" vertex="1" parent="1">
+          <mxGeometry x="220.08999999999997" y="480" width="179.83" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-15" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://careers.veepee.com/wp-content/uploads/TECHNO_Grafana.png;" vertex="1" parent="1">
+          <mxGeometry x="204.99999999999997" y="650" width="210" height="210" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
