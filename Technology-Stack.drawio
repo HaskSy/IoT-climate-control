@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-24T19:29:27.150Z" agent="5.0 (X11)" etag="dxAUHpTB9CdAaEeZRdWu" version="15.5.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-24T19:29:50.555Z" agent="5.0 (X11)" etag="qN__DZhXM2sg2JXHI_GF" version="15.5.9" type="github">
   <diagram id="qIqfUOV368z_VfE0VTQ0" name="Page-1">
     <mxGraphModel dx="1662" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -43,7 +43,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="En2HKmIRu1cNx1hyTsF4-7" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://i.pinimg.com/736x/8d/9b/97/8d9b977c8e59b5b997dd1550ae622208.jpg;" vertex="1" parent="1">
+        <mxCell id="En2HKmIRu1cNx1hyTsF4-7" value="ESPHome" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://i.pinimg.com/736x/8d/9b/97/8d9b977c8e59b5b997dd1550ae622208.jpg;" vertex="1" parent="1">
           <mxGeometry x="659.91" y="140" width="160.19" height="130" as="geometry" />
         </mxCell>
         <mxCell id="En2HKmIRu1cNx1hyTsF4-10" value="Wires" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.486;exitY=-0.05;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="En2HKmIRu1cNx1hyTsF4-11" target="En2HKmIRu1cNx1hyTsF4-6">
