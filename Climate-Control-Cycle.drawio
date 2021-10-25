@@ -1,13 +1,13 @@
-<mxfile host="app.diagrams.net" modified="2021-10-24T20:51:37.046Z" agent="5.0 (X11)" etag="WYiA6Soddl0my22MXviO" version="15.5.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-25T19:31:20.530Z" agent="5.0 (X11)" etag="ARugUu5ew1HVNw-E9Yz0" version="15.5.9" type="github">
   <diagram id="EQ27ajQuuupcWQPX7TqZ" name="Page-1">
-    <mxGraphModel dx="1294" dy="486" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1662" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-3" value="Check Sensors and Send Data to ESP32" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-3" value="Check Sensors and Send Data to ESP32" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="260" y="240" width="170" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-4" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-3" target="CePsAZ5cTVCtUTLdkX69-5">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-4" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-3" target="CePsAZ5cTVCtUTLdkX69-5" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="270" y="510" as="sourcePoint" />
             <mxPoint x="650" y="330" as="targetPoint" />
@@ -18,51 +18,54 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-6" value="JSON Input" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-4">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-6" value="JSON Input" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-4" vertex="1" connectable="0">
           <mxGeometry x="0.1899" y="-3" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-40" value="MQTT" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-4">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-40" value="MQTT" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-4" vertex="1" connectable="0">
           <mxGeometry x="0.0316" y="-2" relative="1" as="geometry">
             <mxPoint x="-87" y="-35" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-5" value="Node-RED Flows Processing" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="530" y="415" width="120" height="60" as="geometry" />
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-5" value="Node-RED Flows Processing" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="550" y="330" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-7" value="JSON Input" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="250" y="340" width="180" height="270" as="geometry">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-7" value="JSON Input" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="250" y="340" width="180" height="320" as="geometry">
             <mxRectangle x="280" y="160" width="100" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-8" value="Temperature data on T1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-8" value="Temperature data on T1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-9" value="Temperature data on T2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-9" value="Temperature data on T2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
           <mxGeometry y="60" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-10" value="Required Temperature" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-10" value="Required Temperature" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
           <mxGeometry y="90" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-26" value="Vent 1 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-26" value="Vent 1 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
           <mxGeometry y="120" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-27" value="Vent 2 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-27" value="Vent 2 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
           <mxGeometry y="150" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-28" value="Heater Power" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-28" value="Heater Power" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
           <mxGeometry y="180" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-29" value="Timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-29" value="Timestamp" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
           <mxGeometry y="210" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-25" value="E.T.C." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="Ncpbh6a9Kwd4U4HSM69k-1" value="E.T.C" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-7">
           <mxGeometry y="240" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-13" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=1.021;entryY=0.117;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="CePsAZ5cTVCtUTLdkX69-7">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-25" value="+ Not Essential Data in&#xa; Separate JSON" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-7" vertex="1">
+          <mxGeometry y="270" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-13" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=1.021;entryY=0.117;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="CePsAZ5cTVCtUTLdkX69-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="530" y="320" as="sourcePoint" />
+            <mxPoint x="520" y="320" as="sourcePoint" />
             <mxPoint x="440" y="410" as="targetPoint" />
             <Array as="points">
               <mxPoint x="500" y="330" />
@@ -71,71 +74,74 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-30" value="&lt;div&gt;Going&amp;nbsp; to be shown &lt;br&gt;&lt;/div&gt;&lt;div&gt;in details in other file&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-30" value="&lt;div&gt;Going&amp;nbsp; to be shown &lt;br&gt;&lt;/div&gt;&lt;div&gt;in details in other file&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="680" y="430" width="150" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-31" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-5" target="CePsAZ5cTVCtUTLdkX69-30">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-31" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-5" target="CePsAZ5cTVCtUTLdkX69-30" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="450" y="430" as="sourcePoint" />
             <mxPoint x="500" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-32" value="Adding data to database" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-32" value="Adding data to database" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="680" y="620" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-37" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.575;exitY=1.05;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-5" target="CePsAZ5cTVCtUTLdkX69-32">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-37" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.4;entryY=-0.067;entryDx=0;entryDy=0;exitX=0.575;exitY=1.05;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-5" target="CePsAZ5cTVCtUTLdkX69-32" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="450" y="430" as="sourcePoint" />
             <mxPoint x="500" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-38" value="JSON Input + JSON Output" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-37">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-38" value="JSON Input + JSON Output" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-37" vertex="1" connectable="0">
           <mxGeometry x="0.3705" y="3" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-41" value="MQTT/HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-37">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-41" value="MQTT/HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-37" vertex="1" connectable="0">
           <mxGeometry x="-0.4763" y="4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-39" value="Sending commands to ESP32" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-39" value="Sending commands to ESP32" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="470" y="650" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-42" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.567;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-5" target="CePsAZ5cTVCtUTLdkX69-39">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-42" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.567;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-5" target="CePsAZ5cTVCtUTLdkX69-39" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="450" y="430" as="sourcePoint" />
             <mxPoint x="500" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-44" value="MQTT" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-42">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-44" value="MQTT" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-42" vertex="1" connectable="0">
           <mxGeometry x="-0.2006" y="3" relative="1" as="geometry">
             <mxPoint x="18" y="-22" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-45" value="JSON Output" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-42">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-45" value="JSON Output" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-42" vertex="1" connectable="0">
           <mxGeometry x="0.2955" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-46" value="JSON Output" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="250" y="630" width="180" height="150" as="geometry">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-46" value="JSON Output" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="255" y="670" width="180" height="180" as="geometry">
             <mxRectangle x="280" y="160" width="100" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-47" value="New Vent 1 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-46">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-47" value="New Vent 1 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-46" vertex="1">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-48" value="New Vent 2 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-46">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-48" value="New Vent 2 PWM %" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-46" vertex="1">
           <mxGeometry y="60" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-49" value="New Heater Power" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-46">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-49" value="New Heater Power" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-46" vertex="1">
           <mxGeometry y="90" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-54" value="E.T.C." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-46">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-54" value="E.T.C." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="CePsAZ5cTVCtUTLdkX69-46" vertex="1">
           <mxGeometry y="120" width="180" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-55" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=1.017;entryY=0.086;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="CePsAZ5cTVCtUTLdkX69-46">
+        <mxCell id="Ncpbh6a9Kwd4U4HSM69k-2" value="E.T.C." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="CePsAZ5cTVCtUTLdkX69-46">
+          <mxGeometry y="150" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-55" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=1.017;entryY=0.086;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="CePsAZ5cTVCtUTLdkX69-46" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="500" y="590" as="sourcePoint" />
             <mxPoint x="420" y="650" as="targetPoint" />
@@ -145,25 +151,25 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-56" value="Updating Devices parametrs" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-56" value="Updating Devices parametrs" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="590" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-57" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-39" target="CePsAZ5cTVCtUTLdkX69-56">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-57" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-39" target="CePsAZ5cTVCtUTLdkX69-56" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="490" y="740" as="sourcePoint" />
             <mxPoint x="390" y="560" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="500" y="870" />
-              <mxPoint x="110" y="790" />
+              <mxPoint x="530" y="920" />
+              <mxPoint x="60" y="850" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-59" value="Wired/WiFi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-57">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-59" value="Wired/WiFi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-57" vertex="1" connectable="0">
           <mxGeometry x="-0.3779" y="-23" relative="1" as="geometry">
             <mxPoint x="-84" y="7" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-60" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-56" target="CePsAZ5cTVCtUTLdkX69-3">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-60" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-56" target="CePsAZ5cTVCtUTLdkX69-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="340" y="610" as="sourcePoint" />
             <mxPoint x="390" y="560" as="targetPoint" />
@@ -173,15 +179,15 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-61" value="Wired/WiFi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-60">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-61" value="Wired/WiFi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-60" vertex="1" connectable="0">
           <mxGeometry x="-0.1815" y="-4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-63" value="Displaying by Grafana" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-63" value="Displaying by Grafana" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="660" y="830" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-64" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-32" target="CePsAZ5cTVCtUTLdkX69-63">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-64" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-32" target="CePsAZ5cTVCtUTLdkX69-63" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="680" y="780" as="sourcePoint" />
             <mxPoint x="730" y="730" as="targetPoint" />
@@ -191,10 +197,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-65" value="ESP32 configuring by ESPHome" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-65" value="ESP32 configuring by ESPHome" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="330" y="30" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-66" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-65" target="CePsAZ5cTVCtUTLdkX69-3">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-66" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-65" target="CePsAZ5cTVCtUTLdkX69-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="380" y="180" as="sourcePoint" />
             <mxPoint x="430" y="130" as="targetPoint" />
@@ -205,32 +211,32 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-67" value="OTA Update" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-66">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-67" value="OTA Update" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-66" vertex="1" connectable="0">
           <mxGeometry x="-0.8462" y="1" relative="1" as="geometry">
             <mxPoint x="-16" y="48" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-68" value="Node-RED program configuration" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="660" y="180" width="120" height="60" as="geometry" />
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-68" value="Node-RED program configuration" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="700" y="40" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-69" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CePsAZ5cTVCtUTLdkX69-68" target="CePsAZ5cTVCtUTLdkX69-5">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-69" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="CePsAZ5cTVCtUTLdkX69-68" target="CePsAZ5cTVCtUTLdkX69-5" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="690" y="350" as="sourcePoint" />
             <mxPoint x="740" y="300" as="targetPoint" />
             <Array as="points">
               <mxPoint x="690" y="270" />
-              <mxPoint x="680" y="360" />
+              <mxPoint x="650" y="280" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-70" value="JSON Config" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CePsAZ5cTVCtUTLdkX69-69">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-70" value="JSON Config" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="CePsAZ5cTVCtUTLdkX69-69" vertex="1" connectable="0">
           <mxGeometry x="-0.0324" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CePsAZ5cTVCtUTLdkX69-71" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.58;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="CePsAZ5cTVCtUTLdkX69-30">
+        <mxCell id="CePsAZ5cTVCtUTLdkX69-71" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.58;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="CePsAZ5cTVCtUTLdkX69-30" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="700" y="340" as="sourcePoint" />
+            <mxPoint x="720" y="260" as="sourcePoint" />
             <mxPoint x="400" y="340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
