@@ -1,8 +1,8 @@
 substitutions:
-  devicename: 'esp32-climat'
+  devicename: 'esp32-climate'
   wifi_ssid: !secret wifi_ssid
   wifi_password: !secret wifi_password
-  
+
   ota_password: !secret ota_password
 
   mqtt_broker: !secret mqtt_broker
@@ -10,46 +10,51 @@ substitutions:
   mqtt_password: !secret mqtt_password
   mqtt_port: '1883'
   log_level: 'INFO'
-  
+
   vent1_pin: 'GPIO25'
   vent2_pin: 'GPIO26'
   heater_pin: 'GPIO27'
-  
+
   ups_pin: 'GPIO15'
-  
+
   i2c_sda_pin: '21'
   i2c_scl_pin: '22'
-  
-  timezone: 'Europe/Talliin' # 'America/Los_Angeles' , 'Europe/Moscow'
+
+  timezone: 'Europe/Tallinn' # 'America/Los_Angeles' , 'Europe/Moscow'
+
 
 esphome:
   name: $devicename
   platform: ESP32
   board: esp32doit-devkit-v1
-  
+
   on_boot:
-    then: 
+    then:
       - output.turn_on: vent1_output
       - output.set_level:
-            id: vent1_output
-            level: 0
-            
+          id: vent1_output
+          level: 0
+
       - output.turn_on: vent2_output
       - output.set_level:
-            id: vent2_output
-            level: 0.2
-            
+          id: vent2_output
+          level: 0.2
+
       - output.turn_on: heater_output
       - output.set_level:
-            id: heater_output
-            level: 0
-            
+          id: heater_output
+          level: 0
+
 # Enable logging
+
+
 logger:
   level: $log_level
-  
+
+
 ota:
   password: $ota_password
+
 
 wifi:
   ssid: $wifi_ssid
@@ -60,31 +65,150 @@ wifi:
     #ssid: "Esp32-Climat Fallback Hotspot"
     password: $ota_password
 
+
+globals:
+
+  - id: dayTimeHours
+    type: int
+    restore_value: yes
+    initial_value: "21"
+
+  - id: dayTimeMinutes
+    type: int
+    restore_value: yes
+    initial_value: "0"
+
+  - id: requiredTempDay
+    type: float
+    restore_value: yes
+    initial_value: "0"
+
+  - id: nightTimeHours
+    type: int
+    restore_value: yes
+    initial_value: "9"
+
+  - id: nightTimeMinutes
+    type: int
+    restore_value: yes
+    initial_value: "0"
+
+  - id: requiredTempNight
+    type: float
+    restore_value: yes
+    initial_value: "0"
+
+  - id: isDay
+    type: bool
+    restore_value: no
+    initial_value: "false"
+
+
+    # Consts
+
+  - id: tempDiffTrigger
+    type: float
+    restore_value: no
+    initial_value: "0.5"
+
+  - id: airHeatCapacity
+    type: float
+    restore_value: no
+    initial_value: "0.29"
+
+  - id: airDensity
+    type: float
+    restore_value: no
+    initial_value: "1.16"
+
+  - id: percentHeaterPower
+    type: int
+    restore_value: no
+    initial_value: "45"
+
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: $timezone
+
+
 captive_portal:
-  
+
+
 i2c:
   sda: $i2c_sda_pin
   scl: $i2c_scl_pin
   scan: true
   id: bus_a
-  
+
 # Example configuration entry
 # dallas:
 #   - pin: 23
 
+
 sensor:
-    # t1
+
+  # t1
   - platform: bme280
     temperature:
       name: "Outside Temperature"
       oversampling: 16x
+      filters:
+        - median:
+            window_size: 10
+            send_every: 1
+            # send_first_at: 1
+
+      on_value_range:
+        above: 0
+        below: 40
+        then:
+          - lambda: |-
+              
+              float vent1Default = .0;
+              int airFlow = 0;
+              float requiredTemp = .0; //var
+              
+              if (id(isDay) == true) {
+                  vent1Default = 0.35;
+                  airFlow = 500;
+                  requiredTemp = requiredTempDay;
+              
+              } else {
+              
+                  vent1Default = 0.2;
+                  airFlow = 300;
+                  requiredTemp = requiredTempNight;
+              
+              }
+              
+              if (requiredTemp - x > id(tempDiffTrigger)) {
+              
+                  float new_level = id(airHeatCapacity) * airFlow * (requiredTemp - x) * id(airDensity) / id(percentHeaterPower) / 100;
+              
+                  if (new_level > 1) {
+                      new_level = 1.0;
+                  }
+                  else if (new_level < 0) {
+                      new_level = 0;
+                  }
+
+                  id(heater_output).set_level(new_level);
+
+              }
+    
+    
+    
+    
+
     pressure:
       name: "Outside Pressure"
     humidity:
       name: "Outside Humidity"
     address: 0x76
     update_interval: 1s
-    
+
     # t2
     # - platform: bme280
     # temperature:
@@ -96,19 +220,64 @@ sensor:
     #   name: "AfterHeat Humidity"
     # address: 0x76
     # update_interval: 1s
-    
+
     # t3
   - platform: bme280
     temperature:
       name: "Exhaust Temperature"
       oversampling: 16x
+
+      on_value_range:
+        above: 0
+        below: 40
+        then:
+          - lambda: |-
+              
+              float requiredTemp = 0;
+              
+              if (id(isDay) == true) {
+                  requiredTemp = id(requiredTempDay);
+              } else {
+                  requiredTemp = id(requiredTempNight);
+              }
+              
+              if (x - requiredTemp > id(tempDiffTrigger)) {
+              
+                  float new_level = (id(vent1_output) + 7 * (x - requiredTemp)) / 100;
+              
+                  if (new_level > 1 - 0.04) {
+                      new_level = 0.96;
+                  }
+                  else if (new_level < 0) {
+                      new_level = 0;
+                  }
+              
+                  id(vent1_output).set_level(new_level);
+
+
+              }
+              
+              else if (abs(requiredTemp - x) < id(tempDiffTrigger)) {
+              
+                float new_level = (id(vent1_output) + 0.04);
+              
+                  if (new_level > 1) {
+                      new_level = 1.0;
+                  }
+                  else if (new_level < 0) {
+                      new_level = 0;
+                  }
+              
+                  id(vent2_output).set_level(new_level);
+              }
+
     pressure:
       name: "Exhaust Pressure"
     humidity:
       name: "Exhaust Humidity"
     address: 0x77
     update_interval: 1s
-    
+
     # t4
     # - platform: bme280
     # temperature:
@@ -120,12 +289,12 @@ sensor:
     #   name: "Inside Humidity"
     # address: 0x77
     # update_interval: 1s
-    
+
     # t5
     # - platform: dallas
     #   address: 0x1c0000031edd2a28
     #   name: "Heater Temperature"
-    
+
 
 # --- UPS Checker ---
 binary_sensor:
@@ -136,25 +305,25 @@ binary_sensor:
       mode: INPUT_PULLDOWN
     id: ups_checker
     filters:
-    - delayed_on_off: 100ms
-    
-# ---/ UPS Checker ---   
+      - delayed_on_off: 100ms
+
+# ---/ UPS Checker ---
 
 # --- VENT & HEATER INIT ---
 output:
   - platform: ledc
     pin: $vent1_pin
     id: vent1_output
-       
+
   - platform: ledc
     pin: $vent2_pin
     id: vent2_output
-    
+
   - platform: ledc
     pin: $heater_pin
     id: heater_output
     frequency: "50Hz"
-    
+
 # ---/ VENT & HEATER INIT ---
 
 mqtt:
@@ -164,8 +333,8 @@ mqtt:
   password: $mqtt_password
   port: $mqtt_port
   discovery: false
-  
-    
+
+
   on_message:
     - topic: $devicename/output/vent1
       then:
@@ -181,21 +350,77 @@ mqtt:
             level: !lambda |-
               ESP_LOGI("custom", x.c_str());
               return atof(x.c_str());
-              
+
     - topic: $devicename/output/heater
       then:
-        - output.set_level:
-            id: heater_output
-            level: !lambda |-
-              return atof(x.c_str());
+        - lambda: |-
+            if (x.containsKey("dayTimeHours")) {
+                id(dayTimeHours)->value() = x["dayTimeHours"];
             
+            }
+            if (x.containsKey("dayTimeMinutes")) {
+                id(dayTimeMinutes)->value() = x["dayTimeMinutes"];
+            
+            }
+            if (x.containsKey("requiredTempDay")) {
+                id(requiredTempDay)->value() = x["requiredTempDay"];
+            
+            }
+            if (x.containsKey("nightTimeHours")) {
+                id(nightTimeHours)->value() = x["nightTimeHours"];
+            
+            }
+            if (x.containsKey("dayTimeHours")) {
+                id(nightTimeMinutes)->value() = x["nightTimeMinutes"];
+            
+            }
+            if (x.containsKey("requiredTempNight")) {
+                id(requiredTempNight)->value() = x["requiredTempNight"];
+            
+            }
+  
+
+  on_json_message:
+    - topic: options/day_night_time
+      then:
+
 interval:
   - interval: 10s
     then:
-        mqtt.publish:
-          topic: $devicename/sensor/alarm
-          payload: !lambda |-
-            if (id(ups_checker).state) {
-              return "true";
-            }
-            return "false";
+      mqtt.publish:
+        topic: $devicename/sensor/alarm
+        payload: !lambda |-
+          
+          if (id(ups_checker).state) {
+            return "true";
+          }
+          return "false";
+
+  - interval: 60s
+    then:
+      - lambda: |-
+          int day = id(dayTimeHours) * 60 + id(dayTimeMinutes);
+          int night = id(nightTimeHours) * 60 + id(nightTimeMinutes);
+          auto time = id(sntp_time).now();
+          int nowtime = time.hour * 60 + time.minute;
+          
+          if (night - day > 0) { // Полночь лежит между ночью и днем
+              if (nowtime > day && nowtime < night) {
+                  id(isDay)->value() = true;
+          
+              }
+              else if (nowtime > night || (nowtime < day && nowtime < night)) {
+                  id(isDay)->value() = false;
+          
+              }
+          }
+          else { // Полночь лежит между днем и ночью (?????)
+              if (nowtime > night && nowtime < day) {
+                  id(isDay)->value() = false;
+          
+              }
+              else if (nowtime > day || (nowtime < day && nowtime < night)) {
+                  id(isDay)->value() = true;
+          
+              }
+          }
