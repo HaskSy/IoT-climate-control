@@ -1,0 +1,201 @@
+substitutions:
+  devicename: 'esp32-climat'
+  wifi_ssid: !secret wifi_ssid
+  wifi_password: !secret wifi_password
+  
+  ota_password: !secret ota_password
+
+  mqtt_broker: !secret mqtt_broker
+  mqtt_username: !secret mqtt_username
+  mqtt_password: !secret mqtt_password
+  mqtt_port: '1883'
+  log_level: 'INFO'
+  
+  vent1_pin: 'GPIO25'
+  vent2_pin: 'GPIO26'
+  heater_pin: 'GPIO27'
+  
+  ups_pin: 'GPIO15'
+  
+  i2c_sda_pin: '21'
+  i2c_scl_pin: '22'
+  
+  timezone: 'Europe/Talliin' # 'America/Los_Angeles' , 'Europe/Moscow'
+
+esphome:
+  name: $devicename
+  platform: ESP32
+  board: esp32doit-devkit-v1
+  
+  on_boot:
+    then: 
+      - output.turn_on: vent1_output
+      - output.set_level:
+            id: vent1_output
+            level: 0
+            
+      - output.turn_on: vent2_output
+      - output.set_level:
+            id: vent2_output
+            level: 0.2
+            
+      - output.turn_on: heater_output
+      - output.set_level:
+            id: heater_output
+            level: 0
+            
+# Enable logging
+logger:
+  level: $log_level
+  
+ota:
+  password: $ota_password
+
+wifi:
+  ssid: $wifi_ssid
+  password: $wifi_password
+  fast_connect: true
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    #ssid: "Esp32-Climat Fallback Hotspot"
+    password: $ota_password
+
+captive_portal:
+  
+i2c:
+  sda: $i2c_sda_pin
+  scl: $i2c_scl_pin
+  scan: true
+  id: bus_a
+  
+# Example configuration entry
+# dallas:
+#   - pin: 23
+
+sensor:
+    # t1
+  - platform: bme280
+    temperature:
+      name: "Outside Temperature"
+      oversampling: 16x
+    pressure:
+      name: "Outside Pressure"
+    humidity:
+      name: "Outside Humidity"
+    address: 0x76
+    update_interval: 1s
+    
+    # t2
+    # - platform: bme280
+    # temperature:
+    #   name: "AfterHeat Temperature"
+    #   oversampling: 16x
+    # pressure:
+    #   name: "AfterHeat Pressure"
+    # humidity:
+    #   name: "AfterHeat Humidity"
+    # address: 0x76
+    # update_interval: 1s
+    
+    # t3
+  - platform: bme280
+    temperature:
+      name: "Exhaust Temperature"
+      oversampling: 16x
+    pressure:
+      name: "Exhaust Pressure"
+    humidity:
+      name: "Exhaust Humidity"
+    address: 0x77
+    update_interval: 1s
+    
+    # t4
+    # - platform: bme280
+    # temperature:
+    #   name: "Inside Temperature"
+    #   oversampling: 16x
+    # pressure:
+    #   name: "Inside Pressure"
+    # humidity:
+    #   name: "Inside Humidity"
+    # address: 0x77
+    # update_interval: 1s
+    
+    # t5
+    # - platform: dallas
+    #   address: 0x1c0000031edd2a28
+    #   name: "Heater Temperature"
+    
+
+# --- UPS Checker ---
+binary_sensor:
+  - platform: gpio
+    name: ups_checker
+    pin:
+      number:  GPIO15
+      mode: INPUT_PULLDOWN
+    id: ups_checker
+    filters:
+    - delayed_on_off: 100ms
+    
+# ---/ UPS Checker ---   
+
+# --- VENT & HEATER INIT ---
+output:
+  - platform: ledc
+    pin: $vent1_pin
+    id: vent1_output
+       
+  - platform: ledc
+    pin: $vent2_pin
+    id: vent2_output
+    
+  - platform: ledc
+    pin: $heater_pin
+    id: heater_output
+    frequency: "50Hz"
+    
+# ---/ VENT & HEATER INIT ---
+
+mqtt:
+  id: mqtt_client
+  broker: $mqtt_broker
+  username: $mqtt_username
+  password: $mqtt_password
+  port: $mqtt_port
+  discovery: false
+  
+    
+  on_message:
+    - topic: $devicename/output/vent1
+      then:
+        - output.set_level:
+            id: vent1_output
+            level: !lambda |-
+              return atof(x.c_str());
+
+    - topic: $devicename/output/vent2
+      then:
+        - output.set_level:
+            id: vent2_output
+            level: !lambda |-
+              ESP_LOGI("custom", x.c_str());
+              return atof(x.c_str());
+              
+    - topic: $devicename/output/heater
+      then:
+        - output.set_level:
+            id: heater_output
+            level: !lambda |-
+              return atof(x.c_str());
+            
+interval:
+  - interval: 10s
+    then:
+        mqtt.publish:
+          topic: $devicename/sensor/alarm
+          payload: !lambda |-
+            if (id(ups_checker).state) {
+              return "true";
+            }
+            return "false";
